@@ -9,7 +9,7 @@ const cardIcons = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa f
 //Assigns .deck class to cardsContainer.
 const cardsContainer = document.querySelector(".deck");
 let openCards = [];//Open array to hold clicked open cards.
-let matchedCards = [];
+let matchedCards = [];//Open array to hold matched cards.
 
 /*
 * Begins the game
@@ -41,7 +41,7 @@ function beginGame(){
             card.classList.add("open", "show", "disabled");//Changes css class based on clicked card.
             openCards.push(this);//Pushes selected cards to openCards variable.
         //Compare function.
-        compare(currentCard, previousCard);
+        compareCards(currentCard, previousCard);
 
         } else{
         //Code for when no cards are selected.
@@ -54,8 +54,9 @@ function beginGame(){
 /*
 * Compare function to compare the cards. Comparison of 2 cards.
 */
-function compare(currentCard, previousCard){
-    if (currentCard.innerHTML === previousCard.innerHTML) {//Compares current card and previous card.
+function compareCards(currentCard, previousCard){
+    //Compares current card and previous card.
+    if (currentCard.innerHTML === previousCard.innerHTML) {
         console.log("Cards matched!");//Test game logic for a match.
 
         /*
@@ -76,9 +77,9 @@ function compare(currentCard, previousCard){
 
         ////Delays css action by waiting 800 milliseconds.
         setTimeout(function () {
-            //Remove .open .show css class //Remove .open .show css class
-            currentCard.classList.remove("open", "show");
-            previousCard.classList.remove("open", "show");
+            //Remove .open .show css class //Remove .open .show css class //Removed .disabled css
+            currentCard.classList.remove("open", "show", "disabled");
+            previousCard.classList.remove("open", "show", "disabled");
             //Resets openCards value after cards are matched.
             openCards = [];
         }, 800);
