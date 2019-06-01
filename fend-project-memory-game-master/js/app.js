@@ -1,14 +1,14 @@
 /*
  * Create a list that holds all of your cards
  */
-//This array will hold all the HTML icon values.
+//This cardIcons will hold all the HTML icon values.
 const cardIcons = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", 
                     "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf",
                     "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"];
 //Assigns .deck class to cardsContainer.
 const cardsContainer = document.querySelector(".deck");
-let openCards = [];//Open array to hold clicked open cards.
-let matchedCards = [];//Open array to hold matched cards.
+let openCards = [];//Open cardIcons to hold clicked open cards.
+let matchedCards = [];//Open cardIcons to hold matched cards.
 /*
 * Begins the game
 */
@@ -22,6 +22,7 @@ function beginGame(){
         //Add click event to every card. 
         clickCard(card);
     }
+    shuffle(cardIcons);
 }
     //Click event
     function clickCard(card){
@@ -29,7 +30,7 @@ function beginGame(){
     card.addEventListener("click", function (){
         console.log(card.innerHTML);//Test code, see if console displays inner HTML on click.
         const currentCard = this;
-        const previousCard = openCards[0];//Code to compare 2 opened cards. checks first element of array [0] - arrays begin at 0 :)
+        const previousCard = openCards[0];//Code to compare 2 opened cards. checks first element of cardIcons [0] - cardIconss begin at 0 :)
 
         //Code to handle 1 open card.
         if(openCards.length === 1){
@@ -80,7 +81,7 @@ function compareCards(currentCard, previousCard){
 }
 function gameOver(){
     if (matchedCards.length === cardIcons.length){
-        alert("Game Over, You Won!")
+        alert("Game Over, You Won!");
     }
 }
 //***/Begin the game when game is loaded./***///
@@ -92,11 +93,11 @@ const restartButton = document.querySelector(".restart");
 restartButton.addEventListener("click", function(){
     //Delete all cards on current game.
     cardsContainer.innerHTML = "";
-    
     //Call beginGame() function to create new cards for new game.
     beginGame();
     //Reset all related game variables, like the matched cards.
-    
+    playerMoves = 0;
+    movesContainer.innerHTML = 0;
 })
 /*
 Add moves to game, count player clicks.
@@ -106,6 +107,15 @@ let playerMoves = 0;
 function addMoves(){
     playerMoves++;
     movesContainer.innerHTML = playerMoves;
+}
+/*
+Add Rating
+*/
+const starsContainer = document.querySelector(".stars");
+function rating(){
+    if (playerMoves > 5){
+        starsContainer.innerHTML = `<li><i class="fa fa=star></i></li>;`
+    }
 }
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
