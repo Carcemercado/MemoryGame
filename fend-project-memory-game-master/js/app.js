@@ -81,7 +81,7 @@ function compareCards(currentCard, previousCard){
 }
 function gameOver(){
     if (matchedCards.length === cardIcons.length){
-        alert("Game Over, You Won!");
+        swal("Game Over!", "You Won!", "success");//Swal must have <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> link in html to work.
     }
 }
 //***/Begin the game when game is loaded./***///
@@ -91,6 +91,7 @@ Restart Game Button
 */
 const restartButton = document.querySelector(".restart");
 restartButton.addEventListener("click", function(){
+    swal("Game Restarted", "Good Luck!")
     //Delete all cards on current game.
     cardsContainer.innerHTML = "";
     //Call beginGame() function to create new cards for new game.
