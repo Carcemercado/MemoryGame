@@ -8,13 +8,18 @@
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1ing Game</h1>
-            <h2>Memory Game by Carlos Arce</h2>
+            <h1>Memory Game</h1>
+            <h2>Game by Carlos Arce</h2>
         </header>
 
         <section class="score-panel">
@@ -24,7 +29,8 @@
         		<li><i class="fa fa-star"></i></li>
         	</ul>
 
-        	<span class="moves">0</span> Moves
+            <span class="moves">0</span> Moves
+            <span id="timer">00:00:00</span>
 
             <div class="restart">
         		<i class="fa fa-repeat"></i>

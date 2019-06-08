@@ -111,3 +111,8 @@ h1 {
     float: right;
     cursor: pointer;
 }
+.score-panel #timer{
+    float: center;
+    display: inline-block;
+    margin-left: 30px;
+}
