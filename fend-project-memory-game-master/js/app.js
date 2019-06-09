@@ -107,6 +107,8 @@ function gameOver() {
           playerMoves +
           "<br> Rating: " +
           starsContainer.innerHTML +
+          "<br> Time: " +
+          timeContainer.innerHTML +
           "<br> Play Again?",
         showCancelButton: true
       })
@@ -199,6 +201,23 @@ function rating() {
 /*
 Add Timer
 */
+var start = Date.now();
+const timeContainer = document.getElementById("timer");
+//Test timer
+console.log("starting timer...");
+//Interval to update timer every second.
+var timer = setInterval(function() {
+  let time = Date.now() - start;
+  let minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((time % (1000 * 60)) / 1000);
+  document.getElementById(
+    "timer"
+  ).innerHTML = `Minutes: ${minutes} Seconds: ${seconds}`;
+  //Stop Timer
+  if (matchedCards.length === cardIcons.length) {
+    clearInterval(timer);
+  }
+}, 1000);
 
 // Shuffle function from http://stackoverflow.com/a/2450976s
 function shuffle(array) {
