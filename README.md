@@ -23,6 +23,8 @@ main.css - contains the game's board styling.
 
 app.js - contains all the board actions & logic.
 
+img - contains the game board for this project.
+
 
 ## Tools
 
