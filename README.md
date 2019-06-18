@@ -18,7 +18,9 @@ When all the cards are matched the game is won!
 ## Code
 
 index.html - contains the game's html structure.
+
 main.css - contains the game's board styling.
+
 app.js - contains all the board actions & logic.
 
 
